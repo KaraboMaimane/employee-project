@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Employee Details
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form>
+    <ion-item>
+      <ion-label floating>First Name:</ion-label>
+      <ion-input type="text" (change)="assignName($event)"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Last Name:</ion-label>
+      <ion-input type="text" (change)="assignLastName($event)"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>ID Number:</ion-label>
+      <ion-input type="text" (change)="assignId($event)"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Role</ion-label>
+      <ion-input type="text" (change)="assignRole($event)"></ion-input>
+    </ion-item><br>
+
+    <button ion-button full color="dark" (click)="nextPage(); addEmployee()">Submit Data</button>
+  </form>
+</ion-content>
