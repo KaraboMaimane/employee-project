@@ -1,33 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Employee Details
+      CodeTribe HR System
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <form>
-    <ion-item>
-      <ion-label floating>First Name:</ion-label>
-      <ion-input type="text" (change)="assignName($event)"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Last Name:</ion-label>
-      <ion-input type="text" (change)="assignLastName($event)"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>ID Number:</ion-label>
-      <ion-input type="text" (change)="assignId($event)"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Role</ion-label>
-      <ion-input type="text" (change)="assignRole($event)"></ion-input>
-    </ion-item><br>
-
-    <button ion-button full color="dark" (click)="nextPage(); addEmployee()">Submit Data</button>
-  </form>
+  <div class="container">
+    <img ion-img src="../../assets/imgs/mlab-green-2.png" alt="">
+  </div> <br>
+  <p>Hello!!! Welcome to the CodeTribe HR Admin system. To proceed, login if you have an account or alternatively you can sign up sign up</p>
+  <button ion-button color="primary" full (click)="registerUser()">Register</button><br>
+  <button ion-button color="primary" (click)="signInPage()" full>Sign In</button>  
 </ion-content>

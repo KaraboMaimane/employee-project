@@ -7,14 +7,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { EmployeesPage } from '../pages/employees/employees';
-import { UpdateModalPage } from '../pages/update-modal/update-modal';
+import { AddEmployeePage } from '../pages/add-employee/add-employee';
+import { RegisterPage } from '../pages/register/register';
+import { SigninPage } from '../pages/signin/signin';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     EmployeesPage,
-    UpdateModalPage
+    AddEmployeePage,
+    RegisterPage,
+    SigninPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import { UpdateModalPage } from '../pages/update-modal/update-modal';
     MyApp,
     HomePage,
     EmployeesPage,
-    UpdateModalPage
+    AddEmployeePage,
+    RegisterPage,
+    SigninPage
   ],
   providers: [
     StatusBar,
