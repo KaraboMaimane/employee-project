@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { AddEmployeePage } from '../add-employee/add-employee';
 import userArray from '../resources/registration'
 import { EmployeesPage } from '../employees/employees';
 /**

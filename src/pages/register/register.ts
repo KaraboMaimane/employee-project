@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import userArray, { User } from '../resources/registration';
-import { AddEmployeePage } from '../add-employee/add-employee';
 import { SigninPage } from '../signin/signin';
 /**
  * Generated class for the RegisterPage page.

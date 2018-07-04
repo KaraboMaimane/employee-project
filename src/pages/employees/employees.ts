@@ -53,7 +53,7 @@ export class EmployeesPage {
         {
           text: 'Save',
           handler: data => {
-            this.insertImage(data.image);
+            // this.insertImage(data.image);
             let updateEmp = new Employee(data.name, data.surname, data.idNo, data.role, this.url);
             employeeArray.splice(i, 1, updateEmp);
           }
