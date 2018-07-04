@@ -34,7 +34,10 @@
       <ion-label floating>Role</ion-label>
       <ion-input type="text" (change)="assignRole($event)"></ion-input>
     </ion-item><br>
-
+    <ion-item>
+      <input type="file" accept="image/png, image/jpeg" (change)="insertImage($event)"> <br> 
+      <img [src]="url" *ngIf="url != null" width="300" height="300"><br>
+    </ion-item>
     <button ion-button full color="primary" (click)="nextPage(); addEmployee()">Submit Data</button>
   </form>
 </ion-content>

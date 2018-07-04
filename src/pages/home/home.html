@@ -1,16 +1,15 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      CodeTribe HR System
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  <div class="container">
-    <img ion-img src="../../assets/imgs/mlab-green-2.png" alt="">
-  </div> <br>
-  <p>Hello!!! Welcome to the CodeTribe HR Admin system. To proceed, login if you have an account or alternatively you can sign up sign up</p>
-  <button ion-button color="primary" full (click)="registerUser()">Register</button><br>
-  <button ion-button color="primary" (click)="signInPage()" full>Sign In</button>  
+  <div class="flex">
+  <div class="overlay">
+    <div class="container">
+      <img ion-img src="../../assets/imgs/logo.png" alt="">
+    </div>
+    <br>
+    <p>Hello!!! Welcome to the CodeTribe HR Admin system. To proceed, login if you have an account or alternatively you can
+      sign up sign up</p>
+    <button ion-button color="primary" full (click)="registerUser()">Register</button>
+    <br>
+    <button ion-button color="primary" (click)="signInPage()" full>Sign In</button>
+  </div>
+</div>
 </ion-content>

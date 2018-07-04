@@ -4,33 +4,26 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
 
-  <ion-navbar>
-    <ion-title>Registration</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 
 <ion-content padding>
-  <div class="container">
-    <img ion-img src="../../assets/imgs/mlab-green-2.png" alt="">
+  <div class="flexwrapper">
+    <div class="flex">
+      <ion-list>
+          <div class="container">
+              <img ion-img src="../../assets/imgs/logo.png" alt="">
+            </div>
+        <ion-item>
+          <ion-label floating>Username: </ion-label>
+          <ion-input type="text" (change)="enterUserName($event)"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password: </ion-label>
+          <ion-input type="password" (change)="enterPassword($event)"></ion-input>
+        </ion-item><br>
+        <button ion-button color="primary" block (click)="registerUser()">Login</button>
+      </ion-list>
+    </div>
   </div>
-  <br>
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Username: </ion-label>
-      <ion-input type="text" (change)="enterUserName($event)"></ion-input>
-    </ion-item>
-  </ion-list>
-
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Password: </ion-label>
-      <ion-input type="password" (change)="enterPassword($event)"></ion-input>
-    </ion-item>
-  </ion-list>
-  <br>
-  <button ion-button color="primary" block (click)="registerUser()">Login</button>
 </ion-content>

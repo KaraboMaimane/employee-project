@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AddEmployeePage } from '../add-employee/add-employee';
 import userArray from '../resources/registration'
+import { EmployeesPage } from '../employees/employees';
 /**
  * Generated class for the SigninPage page.
  *
@@ -49,7 +50,7 @@ export class SigninPage {
           subTitle: 'Congratulations you are successfully signed in'
         });
         alert.present();
-        this.navCtrl.push(AddEmployeePage);
+        this.navCtrl.push(EmployeesPage);
       }else{
         if(this.userName != this.usersArray[i].userName && this.password != this.userName){
           let alert = this.alertCtrl.create({

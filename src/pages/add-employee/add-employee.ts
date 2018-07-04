@@ -15,7 +15,8 @@ export class AddEmployeePage {
   lastName;
   idNo;
   role;
-
+  url;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -38,13 +39,26 @@ export class AddEmployeePage {
   assignRole(event){
     this.role = event.target.value;
   }
+
+  insertImage(event: any){
+    if(event.target.files && event.target.files[0]){
+      let reader = new FileReader();
+
+      reader.onload = (event:any) => {
+        this.url = event.target.result;
+      }
+
+      reader.readAsDataURL(event.target.files[0]);
+      console.log(event.target.files);
+    }
+  }
   
   nextPage(){
     this.navCtrl.push(EmployeesPage);
   }
 
   addEmployee(){
-    let employeeIns = new Employee(this.firstName, this.lastName, this.idNo, this.role);
+    let employeeIns = new Employee(this.firstName, this.lastName, this.idNo, this.role, this.url);
     employeeArray.push(employeeIns);
     console.log(employeeArray);
   }

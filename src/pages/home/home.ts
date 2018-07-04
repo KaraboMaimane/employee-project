@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { SigninPage } from '../signin/signin';
+import { AddEmployeePage } from '../add-employee/add-employee';
 
 @Component({
   selector: 'page-home',
@@ -18,5 +19,9 @@ export class HomePage {
 
   signInPage(){
     this.navCtrl.push(SigninPage);
+  }
+
+  addPage(){
+    this.navCtrl.push(AddEmployeePage);
   }
 }

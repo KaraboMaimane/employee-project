@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import employeeArray, {Employee} from '../resources/employees';
+import employeeArray, { Employee } from '../resources/employees';
+import { AddEmployeePage } from '../add-employee/add-employee';
 
 @IonicPage()
 @Component({
@@ -9,57 +10,69 @@ import employeeArray, {Employee} from '../resources/employees';
 })
 export class EmployeesPage {
   employeeList = employeeArray;
+  url;
   alertCtrl: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrlr: AlertController) {
   }
 
-  deleteEmployee(i){
+  deleteEmployee(i) {
     this.employeeList.splice(i, 1);
-  }
-
-  updateEmployee(i){
-    employeeArray.splice(i, 1)
   }
   //todo:return data and assing to instance of object to the above
 
-  // presentPrompt() {
-  //   let alert = this.alertCtrl.create({
-  //     title: 'Login',
-  //     inputs: [
-  //       {
-  //         name: 'name',
-  //         placeholder: 'Username'
-  //       },
-  //       {
-  //         name: 'surname',
-  //         placeholder: 'Surname'
-  //       },
-  //       {
-  //         name: 'idNo',
-  //         placeholder: 'Id No'
-  //       },
-  //       {
-  //         name: 'role',
-  //         placeholder: 'Role'
-  //       }
-  //     ],
-  //     buttons: [
-  //       {
-  //         text: 'Cancel',
-  //         role: 'cancel',
-  //         handler: data => {
-  //           console.log('Cancel clicked');
-  //         }
-  //       },
-  //       {
-  //         text: 'Login',
-  //         handler: data => {
-  //           // let replaceEmployee = new Employee();
-  //         }
-  //       }
-  //     ]
-  //   });
-  //   alert.present();
-  // }
+  updateEmployee(i) {
+    const prompt = this.alertCtrlr.create({
+      title: 'Login',
+      message: "Enter the details that you want to update",
+      inputs: [
+        {
+          name: 'name',
+          placeholder: 'Name'
+        },
+        {
+          name: 'surname',
+          placeholder: 'Surname'
+        },
+        {
+          name: 'idNo',
+          placeholder: 'ID No'
+        },
+        {
+          name: 'role',
+          placeholder: 'Role'
+        },
+        {
+          name: 'image',
+          type: 'file'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel'
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.insertImage(data.image);
+            let updateEmp = new Employee(data.name, data.surname, data.idNo, data.role, this.url);
+            employeeArray.splice(i, 1, updateEmp);
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 
+  addEmployee() {
+    this.navCtrl.push(AddEmployeePage);
+  }
+
+  insertImage(event: any) {
+    let reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.url = event.target.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+    console.log(event.target.files);
+  }
 }

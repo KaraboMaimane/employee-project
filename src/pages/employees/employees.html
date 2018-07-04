@@ -15,22 +15,22 @@
 
 <ion-content padding>
   <ion-grid>
-    <ion-row> 
+    <ion-row>
       <ion-col col-sm-12 col-md-4 col-lg-4 *ngFor="let employee of employeeList; let i = index">
         <ion-card>
-      
-          <img src="../../assets/imgs/blank-avatar.png"/>
-      
+
+          <img [src]="employee.image" width="200" height="250"/>
+
           <ion-card-content>
             <ion-card-title>
-              {{ employee.name }} {{ employee.surname }}
+              {{ employee.name }} <br> {{ employee.surname }}
             </ion-card-title>
             <p>
-              IdNo: {{ employee.idNo }} <br>
-              Role: {{ employee.role }}
+              IdNo: {{ employee.idNo }}
+              <br> Role: {{ employee.role }}
             </p>
           </ion-card-content>
-      
+
           <ion-row no-padding>
             <ion-col>
               <button ion-button clear small color="danger" icon-start (click)="deleteEmployee(i)">
@@ -39,7 +39,7 @@
               </button>
             </ion-col>
             <ion-col text-right>
-              <button ion-button clear small color="success" icon-start (click)="presentPrompt()">
+              <button ion-button clear small color="success" icon-start (click)="updateEmployee(i)">
                 <ion-icon name='build'></ion-icon>
                 Update
               </button>
@@ -47,19 +47,58 @@
           </ion-row>
         </ion-card>
       </ion-col>
+      <ion-col col-sm-12 col-md-4 col-lg-4 *ngFor="let employee of employeeList; let i = index">
+          <ion-card>
+  
+            <img src="../../assets/imgs/blank-avatar.png" />
+  
+            <ion-card-content>
+              <ion-card-title>
+                Add Employee
+              </ion-card-title>
+              <p>Would you perhaps like to add another employee?
+              </p>
+            </ion-card-content>
+  
+            <ion-row no-padding>
+              <ion-col>
+                <button ion-button clear small color="danger" icon-start (click)="deleteEmployee(i)">
+                  <ion-icon name='trash'></ion-icon>
+                  Delete
+                </button>
+              </ion-col>
+              <ion-col text-right>
+                <button ion-button clear small color="success" icon-start (click)="presentPrompt()">
+                  <ion-icon name='build'></ion-icon>
+                  Update
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-card *ngIf="employeeList.length == 0">
-    <img src="../../assets/imgs/dololo.jpg" alt="">
-    <ion-card-content>
-      <ion-card-title>
-        No Content
-      </ion-card-title>
-      <p>
-        Add an employee or something... It's lonely here
-      </p>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid *ngIf="employeeList.length == 0">
+    <ion-row>
+      <ion-col>
+        <ion-card col-sm-12 col-md-4 col-lg-4>
+          <img src="../../assets/imgs/dololo.jpg" width="200" height="250" alt="">
+          <ion-card-content>
+            <ion-card-title>
+              No Content
+            </ion-card-title>
+            <p>
+              Add an employee or something... It's lonely here
+            </p>
+
+            <button ion-button color="secondary" (click)="addEmployee()">
+              <ion-icon name="add"></ion-icon>Add Employee
+            </button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
